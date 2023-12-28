@@ -9,11 +9,22 @@
   },
   "exports": {
     ".": {
-        "import": "./dist/hx-chart.es.js",
-        "require": "./dist/hx-chart.umd.js"
+      "import": "./dist/hx-chart.es.js",
+      "require": "./dist/hx-chart.umd.js"
     }
-},
-  "keywords": [],
+  },
+  "main": "./dist/hx-chart.umd.js",
+  "module": "./dist/hx-chart.es.js",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "htmx",
+    "htmx-extension",
+    "chart.js",
+    "charts",
+    "htmx-charts"
+  ],
   "author": "jop-software Inh. Johannes Przymusinski",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
