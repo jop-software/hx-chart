@@ -37,4 +37,4 @@ import "@jop-software/hx-chart";
 
 Professional support, as well as enterprise licenses are available. Please contact [support@jop-software.de](mailto:support@jop-software.de) for more information.
 
-<div align=center>&copy 2023, <a href="https://jop-software.de">jop-software Inh. Johannes Przymusinski</a></div>
+<div align=center>&copy; 2023, <a href="https://jop-software.de">jop-software Inh. Johannes Przymusinski</a></div>
