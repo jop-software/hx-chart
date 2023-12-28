@@ -1,0 +1,44 @@
+name: "CI"
+
+on:
+  workflow_call:
+
+env:
+  NODE_VERSION: 20
+
+jobs:
+
+  build:
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - uses: "actions/checkout@v4"
+      
+      - uses: "actions/setup-node@v4"
+        with:
+          node-version: "${{ env.NODE_VERSION }}"
+      
+      - uses: "pnpm/action-setup@v2"
+        id: "pnpm-install"
+        with:
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --strict-peer-dependencies
+
+      - name: Build
+        run: pnpm run build

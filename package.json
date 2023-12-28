@@ -1,0 +1,29 @@
+{
+  "name": "@jop-software/hx-chart",
+  "version": "0.1.0",
+  "description": "",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "exports": {
+    ".": {
+        "import": "./dist/hx-chart.es.js",
+        "require": "./dist/hx-chart.umd.js"
+    }
+},
+  "keywords": [],
+  "author": "jop-software Inh. Johannes Przymusinski",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-plugin-dts": "^3.7.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.1",
+    "htmx.org": "^1.9.10"
+  },
+  "packageManager": "pnpm@3.13.1"
+}
