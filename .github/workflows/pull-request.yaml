@@ -5,5 +5,10 @@ on:
   
 jobs:
 
-  ci:
-    uses: "./.github/workflows/job-ci.yaml"
+  build:
+    uses: "./.github/workflows/job-build.yaml"
+
+  cleanup:
+    uses: "./.github/workflows/job-cleanup.yaml"
+    needs:
+      - build

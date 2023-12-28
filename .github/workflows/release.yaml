@@ -1,0 +1,92 @@
+name: "Release 🚀"
+
+on:
+  push:
+    tags:
+      - "v*"
+
+env:
+  NODE_VERSION: 20
+
+jobs:
+  build:
+    uses: "./.github/workflows/build.yaml"
+
+  github-release:
+    name: "GitHub Release"
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: hx-chart
+          path: ./dist
+
+      - name: "Release 🚀"
+        uses: "softprops/action-gh-release@v1"
+        with:
+          generate_release_notes: true
+          files: dist
+
+  publish-github:
+    name: "Publish to Github Packages"
+    needs:
+      -  github-release
+    runs-on: ubuntu-latest
+    permissions: 
+      contents: read
+      packages: write 
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: hx-chart
+          path: ./dist
+          
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '${{ env.NODE_VERSION }}'
+          registry-url: 'https://npm.pkg.github.com'
+
+      - uses: pnpm/action-setup@v2
+        with:
+          run_install: false
+
+        # --no-git-checks is needed, because this pipelies runs on the pushed tag which is in a detached HEAD state
+      - run: pnpm publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-npm:
+    name: "Publish to NPM"
+    needs:
+      -  github-release
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: hx-chart
+          path: ./dist
+          
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '${{ env.NODE_VERSION }}'
+          registry-url: "https://registry.npmjs.org/"
+
+      - uses: pnpm/action-setup@v2
+        with:
+          run_install: false
+
+        # --no-git-checks is needed, because this pipelies runs on the pushed tag which is in a detached HEAD state
+      - run: pnpm publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  cleanup:
+    uses: "./.github/workflows/job-cleanup.yaml"
+    needs:
+      - publish-npm
+      - publish-github
