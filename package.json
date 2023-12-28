@@ -36,5 +36,9 @@
     "chart.js": "^4.4.1",
     "htmx.org": "^1.9.10"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jop-software/hx-astro"
+},
   "packageManager": "pnpm@8.13.1"
 }
