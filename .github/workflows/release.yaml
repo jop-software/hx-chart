@@ -10,7 +10,7 @@ env:
 
 jobs:
   build:
-    uses: "./.github/workflows/build.yaml"
+    uses: "./.github/workflows/job-build.yaml"
 
   github-release:
     name: "GitHub Release"
