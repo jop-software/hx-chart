@@ -1,6 +1,6 @@
 {
   "name": "@jop-software/hx-chart",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "",
   "types": "./dist/index.d.ts",
   "type": "module",
