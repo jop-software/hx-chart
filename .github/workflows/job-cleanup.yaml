@@ -1,0 +1,13 @@
+name: Cleanup
+
+on: 
+  workflow_call:
+    
+jobs:
+  cleanup:
+    name: "Cleanup 🧹"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: geekyeggo/delete-artifact@v4
+        with:
+            name: hx-chart

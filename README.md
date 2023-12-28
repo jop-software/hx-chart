@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>`@jop-software/hx-chart` - chart.js as an htmx.org plugin</h1>
+    <h1><code>@jop-software/hx-chart</code> - chart.js as an htmx.org plugin</h1>
 </div>
 
 > Use [chart.js](https://www.chartjs.org/) as an extension in HTMX.
