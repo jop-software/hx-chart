@@ -25,13 +25,15 @@ import "@jop-software/hx-chart";
 ```html
 <canvas
     hx-ext="hx-chart"
-    hx-chart
+    hx-chart="true"
     hx-chart-type="pie"
     hx-chart-labels='["40%", "60%"]'
     hx-chart-datasets='[{"data": ["40","60"], "backgroundColor": ["#dc3545", "#28a745"]}]'
 ></canvas>
 ```
 
+> [!NOTE]  
+> All attributes can be prefixed with `data-`, so you can use `data-hx-chart-type` instead of `hx-chart-type`.
 
 ## Professional support and Enterprise Licensing
 
