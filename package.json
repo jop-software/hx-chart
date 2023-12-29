@@ -16,7 +16,8 @@
   "main": "./dist/hx-chart.umd.js",
   "module": "./dist/hx-chart.es.js",
   "files": [
-    "dist"
+    "dist",
+    "editors/jetbrains/web-types.json"
   ],
   "keywords": [
     "htmx",
@@ -39,6 +40,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jop-software/hx-chart"
-},
-  "packageManager": "pnpm@8.13.1"
+  },
+  "packageManager": "pnpm@8.13.1",
+  "web-types": "editors/jetbrains/web-types.json"
 }
