@@ -1,0 +1,45 @@
+{
+	"$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
+	"name": "@jop-software/hx-chart",
+	"version": "1.0.1",
+	"js-types-syntax": "typescript",
+	"description-markup": "markdown",
+	"contributions": {
+		"html": {
+			"attributes": [
+				{
+					"name": "hx-chart",
+					"description": "The **hx-chart** attribute is used to create a chart.",
+					"description-sections": {
+						"Inherited": ""
+					},
+					"doc-url": "https://github.com/jop-software/hx-chart"
+				},
+				{
+					"name": "hx-chart-type",
+					"description": "The **hx-chart-type** attribute sets the type of chart to be displayed.",
+					"description-sections": {
+						"Inherited": ""
+					},
+					"doc-url": "https://github.com/jop-software/hx-chart"
+				},
+				{
+					"name": "hx-chart-labels",
+					"description": "The **hx-chart-type** attribute contains an JSON array of labels to be displayed on the chart.",
+					"description-sections": {
+						"Inherited": ""
+					},
+					"doc-url": "https://github.com/jop-software/hx-chart"
+				},
+				{
+					"name": "hx-chart-datasets",
+					"description": "The **hx-chart-datasets** attribute contains an JSON array of datasets which contain the data to be displayed on the chart.",
+					"description-sections": {
+						"Inherited": ""
+					},
+					"doc-url": "https://github.com/jop-software/hx-chart"
+				}
+			]
+		}
+	}
+}
